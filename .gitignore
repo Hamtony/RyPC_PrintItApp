@@ -1,0 +1,10 @@
+# Archivos de entorno
+.env
+
+# Archivos de migraciones
+*.pyc
+__pycache__/
+
+# Archivos de configuración de IDE (opcional)
+.vscode/
+.idea/
