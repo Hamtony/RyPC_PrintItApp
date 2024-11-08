@@ -79,7 +79,7 @@ class TiposUsuarios(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'tipos_usuarios'
+        db_table = 'Tipos_Usuarios'
 
 
 class UsuarioManager(BaseUserManager):
