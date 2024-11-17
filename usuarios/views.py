@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import RegistroForm  # Crearemos el formulario en breve
+from django.contrib.auth.decorators import login_required
+from .forms import SolicitudEncargoForm
+from django.contrib import messages
 
 def registro(request):
     if request.method == 'POST':
@@ -14,6 +17,22 @@ def registro(request):
     else:
         form = RegistroForm()
     return render(request, 'registro.html', {'form': form})
+
+@login_required
+def solicitar_encargo(request):
+    if request.method == 'POST':
+        form = SolicitudEncargoForm(request.POST, request.FILES)
+        if form.is_valid():
+            solicitud = form.save(commit=False)
+            solicitud.usuario = request.user
+            solicitud.estado_id = 1
+            solicitud.save()
+            print(f"Archivo guardado en: {solicitud.archivo_stl.path}")  # Agregar esta línea
+            messages.success(request, "¡Solicitud de impresión enviada con éxito!")
+            return redirect('inicio')
+    else:
+        form = SolicitudEncargoForm()
+    return render(request, 'solicitar_encargo.html', {'form': form})
 
 def login_view(request):
     if request.method == 'POST':

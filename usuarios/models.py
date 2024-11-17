@@ -55,14 +55,14 @@ class Materiales(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'materiales'
+        db_table = 'Materiales'
 
 
 class Solicitudes(models.Model):
     solicitud_id = models.AutoField(primary_key=True)
     usuario = models.ForeignKey('Usuarios', models.DO_NOTHING)
-    archivo_stl = models.CharField(max_length=255)
-    material = models.ForeignKey(Materiales, models.DO_NOTHING)
+    archivo_stl = models.FileField(upload_to='archivos_stl/', max_length=255)
+    material_id = models.ForeignKey('Materiales', on_delete=models.CASCADE, db_column='material_id')
     dimensiones = models.CharField(max_length=50)
     estado = models.ForeignKey(EstadosSolicitud, models.DO_NOTHING)
     fecha_solicitud = models.DateTimeField(blank=True, null=True)
@@ -70,7 +70,7 @@ class Solicitudes(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'solicitudes'
+        db_table = 'Solicitudes'
 
 
 class TiposUsuarios(models.Model):

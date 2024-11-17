@@ -1,0 +1,12 @@
+<!-- templates/solicitar_encargo.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Solicitar Encargo de Impresión 3D</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enviar Solicitud</button>
+</form>
+{% endblock %}

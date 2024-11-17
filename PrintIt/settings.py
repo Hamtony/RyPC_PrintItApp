@@ -11,10 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
-from decouple import Config, Csv
 
-# Instanciamos Config
-config = Config('.env')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,7 +25,7 @@ SECRET_KEY = 'django-insecure-#e&w^yj0s5^n792*x_g6h&0$4um4t!e%orpc5y!q!isn=rw7jv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.0.11', 'localhost']
 
 
 # Application definition
@@ -79,6 +76,16 @@ WSGI_APPLICATION = 'PrintIt.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'PrintItDB',
+        'USER': 'root',
+        'PASSWORD': 'L-9zwx123',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
 
 AUTH_USER_MODEL = 'usuarios.Usuarios'
 
@@ -118,6 +125,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'   
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
