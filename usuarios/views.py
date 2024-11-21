@@ -50,3 +50,6 @@ def login_view(request):
 
 def inicio(request):
     return render(request, 'inicio.html')
+
+def landing_page(request):
+    return render(request, 'landing_page.html')

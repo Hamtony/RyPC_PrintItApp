@@ -1,0 +1,162 @@
+html, body {
+    
+    background-color: black; /* Fondo negro */
+  }
+
+/* Estilos del header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a202c; /* Fondo azul transparente */
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+    color: white; /* Asegura que el texto sea blanco */
+}
+
+.logo-container img {
+    max-height: 50px; /* Ajustar el tamaño del logo */
+  }
+
+/* Cambio de color en el header cuando se hace scroll */
+.header.scrolled {
+    background-color: rgba(43, 108, 176, 0.8); /* Fondo azul más oscuro y transparente */
+}
+
+/* Estilos para el menú de navegación */
+.nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+.nav ul li {
+    display: inline;
+}
+
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el cursor sobre los botones */
+.nav ul li a:hover {
+    color: #fff;
+    background-color: #2b6cb0;
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Línea debajo del botón al pasar el cursor */
+.nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Estilo para la sección principal con el gif */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Hace que el gif ocupe toda la altura de la ventana */
+    position: relative;
+}
+
+/* Contenedor del gif, ocupando toda la altura disponible */
+.gif-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Pone el gif por debajo de otros elementos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animación del gif */
+.gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el gif cubra toda el área */
+    animation: gifAnimation 10s infinite ease-in-out;
+}
+
+/* Animación para el gif */
+@keyframes gifAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Estilo para el pie de página */
+footer {
+    background-color: #1a202c; /* Fondo azul transparente */
+    color: white; /* Asegura que el texto sea blanco */
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.875rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* Da un toque de desenfoque al fondo */
+}
+
+/* Resaltar el nombre de la app en el pie de página */
+footer span {
+    font-weight: bold;
+    color: #f3f4f6;
+}
+
+/* Ajustes responsivos 
+@media (max-width: 640px) {
+    .w-full {
+        width: 100%;
+    }
+
+    .bg-white {
+        width: 90%;
+    }
+    .gif-container {
+        max-width: 100%;
+        max-height: 70%;
+    }
+}
+*/
+

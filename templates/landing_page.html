@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintItApp - Página Principal</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
+</head>
+<body>
+    <!-- Header con botones -->
+    <header class="header" id="header">
+        <div class="logo-container">
+            <img src="{% static 'images/logo.png' %}" alt="Logo de la empresa">
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="/registro">Regiter</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="gif-container">
+        <img src="{% static 'images/impresion.gif' %}" alt="Impresión" class="gif-animation">
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 <span>PrintItApp</span>. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="{% static 'js/landing_page.js' %}"></script>
+</body>
+</html>
