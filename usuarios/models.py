@@ -56,6 +56,8 @@ class Materiales(models.Model):
     class Meta:
         managed = False
         db_table = 'Materiales'
+    def __str__(self):
+        return self.descripcion
 
 
 class Solicitudes(models.Model):
@@ -80,6 +82,8 @@ class TiposUsuarios(models.Model):
     class Meta:
         managed = False
         db_table = 'Tipos_Usuarios'
+    def __str__(self):
+        return self.descripcion
 
 
 class UsuarioManager(BaseUserManager):
